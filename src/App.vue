@@ -55,16 +55,76 @@
     </v-app-bar>
     <v-main>
       <v-container>
-        <h1>Dashboard</h1>
+        <h1 class="mb-6">Dashboard</h1>
 
         <v-card flat class="border" mg-4>
-          <v-table density="compact">
+          <div class="d-flex justify-space-between">
+            <v-card-title>Últimos usuários</v-card-title>
+
+            <v-card-title>
+              <v-btn @click="isDialogOpen = true" variant="tonal" size="small"
+                >Adicionar usuários</v-btn
+              >
+
+              <v-dialog v-model="isDialogOpen" width="600px">
+                <v-card>
+                  <v-card-title>Adicionar usuário</v-card-title>
+                  <v-card-text>
+                    <v-row>
+                      <v-col>
+                        <v-text-field label="Nome" variant="outlined"></v-text-field>
+                      </v-col>
+                      <v-col>
+                        <v-text-field label="Email" variant="outlined"></v-text-field>
+                      </v-col>
+                    </v-row>
+
+                    <v-select label="Cargo" variant="outlined" :items="['Admin','Gerente','Usuario']"></v-select>
+                  </v-card-text>
+
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn variant="text" @click="isDialogOpen = false">Cancelar</v-btn>
+                    <v-btn variant="tonal" color="success" @click="isDialogOpen = false">Salvar</v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </v-card-title>
+          </div>
+
+          <v-table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Cargo</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
             <tbody>
               <tr>
-                <td>Teste</td>
+                <td>Fulano</td>
+                <td>fulanoemail@gmail.com</td>
+                <td>Admin</td>
+                <td>
+                  <v-btn variant="tonal" color="primary">Editar</v-btn>
+                </td>
               </tr>
               <tr>
-                <td>Teste</td>
+                <td>Ciclano</td>
+                <td>ciclanoemail@gmail.com</td>
+                <td>Gerente</td>
+                <td>
+                  <v-btn variant="tonal" color="primary">Editar</v-btn>
+                </td>
+              </tr>
+              <tr>
+                <td>Beltrano</td>
+                <td>beltranooemail@gmail.com</td>
+                <td>Úsuario</td>
+                <td>
+                  <v-btn variant="tonal" color="primary">Editar</v-btn>
+                </td>
               </tr>
             </tbody>
           </v-table>
@@ -161,6 +221,7 @@ export default {
 
   data: () => ({
     isDrawerOpen: false,
+    isDialogOpen: false,
   }),
 };
 </script>
