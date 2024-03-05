@@ -55,9 +55,10 @@
     </v-app-bar>
     <v-main>
       <v-container>
+
         <h1 class="mb-6">Dashboard</h1>
 
-        <v-card flat class="border" mg-4>
+        <v-card flat class="border" mb-4>
           <div class="d-flex justify-space-between">
             <v-card-title>Últimos usuários</v-card-title>
 
@@ -75,7 +76,11 @@
                         <v-text-field label="Nome" variant="outlined"></v-text-field>
                       </v-col>
                       <v-col>
-                        <v-text-field label="Email" variant="outlined"></v-text-field>
+                        <v-text-field 
+                        label="Email" 
+                        variant="outlined"
+                        :rules="emailRules"
+                        ></v-text-field>
                       </v-col>
                     </v-row>
 
@@ -105,7 +110,7 @@
               <tr>
                 <td>Fulano</td>
                 <td>fulanoemail@gmail.com</td>
-                <td>Admin</td>
+                <td><v-chip color="primary" variant="outlined" size="small">Admin</v-chip></td>
                 <td>
                   <v-btn variant="tonal" color="primary">Editar</v-btn>
                 </td>
@@ -113,7 +118,7 @@
               <tr>
                 <td>Ciclano</td>
                 <td>ciclanoemail@gmail.com</td>
-                <td>Gerente</td>
+                <td><v-chip color="success" variant="outlined" size="small">Gerente</v-chip></td>
                 <td>
                   <v-btn variant="tonal" color="primary">Editar</v-btn>
                 </td>
@@ -121,7 +126,7 @@
               <tr>
                 <td>Beltrano</td>
                 <td>beltranooemail@gmail.com</td>
-                <td>Úsuario</td>
+                <td><v-chip variant="outlined" size="small">Usuario</v-chip></td>
                 <td>
                   <v-btn variant="tonal" color="primary">Editar</v-btn>
                 </td>
